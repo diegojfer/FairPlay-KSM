@@ -10,5 +10,6 @@
     <Compile Include="src/Main.cs" />
     <Compile Include="src/Support/Throws/ArgumentThrow.cs" />
     <Compile Include="src/Support/Binary/BinaryConverter.cs" />
+    <Compile Include="src/Entities/Payload/ARPayload.cs" />
   </ItemGroup>
 </Project>
