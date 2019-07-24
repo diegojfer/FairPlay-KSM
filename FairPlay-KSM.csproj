@@ -22,5 +22,6 @@
     <Compile Include="src/Entities/Payload/R2Payload.cs" />
     <Compile Include="src/Entities/Payload/SKR1IntegrityPayload.cs" />
     <Compile Include="src/Entities/Payload/SKR1Payload.cs" />
+    <Compile Include="src/Entities/Payload/StreamingIndicatorPayload.cs" />
   </ItemGroup>
 </Project>
