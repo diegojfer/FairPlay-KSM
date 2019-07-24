@@ -17,5 +17,6 @@
     <Compile Include="src/Entities/Payload/EncryptedCKPayload.cs" />
     <Compile Include="src/Entities/Payload/HDCPEnforcementPayload.cs" />
     <Compile Include="src/Entities/Payload/MediaPlaybackPayload.cs" />
+    <Compile Include="src/Entities/Payload/ProtocolSupportedPayload.cs" />
   </ItemGroup>
 </Project>
