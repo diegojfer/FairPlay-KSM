@@ -12,5 +12,6 @@
     <Compile Include="src/Support/Binary/BinaryConverter.cs" />
     <Compile Include="src/Entities/Payload/ARPayload.cs" />
     <Compile Include="src/Entities/Payload/AssetPayload.cs" />
+    <Compile Include="src/Entities/Payload/CapabilitiesPayload.cs" />
   </ItemGroup>
 </Project>
