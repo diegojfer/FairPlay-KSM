@@ -13,5 +13,6 @@
     <Compile Include="src/Entities/Payload/ARPayload.cs" />
     <Compile Include="src/Entities/Payload/AssetPayload.cs" />
     <Compile Include="src/Entities/Payload/CapabilitiesPayload.cs" />
+    <Compile Include="src/Entities/Payload/DurationCKPayload.cs" />
   </ItemGroup>
 </Project>
