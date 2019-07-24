@@ -9,5 +9,6 @@
   <ItemGroup>
     <Compile Include="src/Main.cs" />
     <Compile Include="src/Support/Throws/ArgumentThrow.cs" />
+    <Compile Include="src/Support/Binary/BinaryConverter.cs" />
   </ItemGroup>
 </Project>
