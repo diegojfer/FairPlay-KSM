@@ -8,5 +8,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="src/Main.cs" />
+    <Compile Include="src/Support/Throws/ArgumentThrow.cs" />
   </ItemGroup>
 </Project>
