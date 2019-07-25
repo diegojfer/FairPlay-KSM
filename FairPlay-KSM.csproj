@@ -29,5 +29,6 @@
     <Compile Include="src/Entities/TLLVTag.cs" />
     <Compile Include="src/Entities/TLLVSlab.cs" />
     <Compile Include="src/Entities/SPCMessage.cs" />
+    <Compile Include="src/Entities/CKCMessage.cs" />
   </ItemGroup>
 </Project>
