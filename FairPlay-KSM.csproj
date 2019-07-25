@@ -27,5 +27,6 @@
     <Compile Include="src/Entities/Payload/TransactionPayload.cs" />
     <Compile Include="src/Entities/Payload/TRRPayload.cs" />
     <Compile Include="src/Entities/TLLVTag.cs" />
+    <Compile Include="src/Entities/TLLVSlab.cs" />
   </ItemGroup>
 </Project>
