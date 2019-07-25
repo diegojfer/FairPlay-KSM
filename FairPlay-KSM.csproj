@@ -28,5 +28,6 @@
     <Compile Include="src/Entities/Payload/TRRPayload.cs" />
     <Compile Include="src/Entities/TLLVTag.cs" />
     <Compile Include="src/Entities/TLLVSlab.cs" />
+    <Compile Include="src/Entities/SPCMessage.cs" />
   </ItemGroup>
 </Project>
