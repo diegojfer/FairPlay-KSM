@@ -25,5 +25,6 @@
     <Compile Include="src/Entities/Payload/SKR1Payload.cs" />
     <Compile Include="src/Entities/Payload/StreamingIndicatorPayload.cs" />
     <Compile Include="src/Entities/Payload/TransactionPayload.cs" />
+    <Compile Include="src/Entities/TLLVTag.cs" />
   </ItemGroup>
 </Project>
