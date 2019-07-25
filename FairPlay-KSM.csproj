@@ -18,6 +18,7 @@
     <Compile Include="src/Entities/Payload/HDCPEnforcementPayload.cs" />
     <Compile Include="src/Entities/Payload/MediaPlaybackPayload.cs" />
     <Compile Include="src/Entities/Payload/ProtocolSupportedPayload.cs" />
+    <Compile Include="src/Entities/Payload/ProtocolUsedPayload.cs" />
     <Compile Include="src/Entities/Payload/R1Payload.cs" />
     <Compile Include="src/Entities/Payload/R2Payload.cs" />
     <Compile Include="src/Entities/Payload/SKR1IntegrityPayload.cs" />
