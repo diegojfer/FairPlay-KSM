@@ -18,8 +18,23 @@ namespace FoolishTech.Support.Throws
             if (buffer.Length < size) throw new ArgumentException(message, paramName);
         }
         
+        public static void IfTooMuchBytes(ReadOnlyMemory<byte> buffer, int size, string message, string paramName)
+        {
+            if (size < 0) throw new ArgumentOutOfRangeException("Invalid size length. ¿Integer overflow?", nameof(size));
+            if (buffer.Length < 0) throw new ArgumentOutOfRangeException("Invalid size length. ¿Integer overflow?", nameof(buffer.Length));
+            if (buffer.Length > size) throw new ArgumentException(message, paramName);
+        }
+        
         public static void IfLengthNot(ReadOnlyMemory<byte> buffer, int size, string message, string paramName)
         {
+            if (size < 0) throw new ArgumentOutOfRangeException("Invalid size length. ¿Integer overflow?", nameof(size));
+            if (buffer.Length < 0) throw new ArgumentOutOfRangeException("Invalid size length. ¿Integer overflow?", nameof(buffer.Length));
+            if (buffer.Length != size) throw new ArgumentException(message, paramName);
+        }
+        
+        public static void IfLengthNot(byte[] buffer, int size, string message, string paramName)
+        {
+            if (buffer == null) throw new ArgumentNullException(message, paramName);
             if (size < 0) throw new ArgumentOutOfRangeException("Invalid size length. ¿Integer overflow?", nameof(size));
             if (buffer.Length < 0) throw new ArgumentOutOfRangeException("Invalid size length. ¿Integer overflow?", nameof(buffer.Length));
             if (buffer.Length != size) throw new ArgumentException(message, paramName);
