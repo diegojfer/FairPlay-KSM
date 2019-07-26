@@ -19,7 +19,7 @@ namespace FoolishTech.Support.Binary
 	
 			return (SByte)buffer.ToArray()[0];
 		}
-		public static byte[] WriteInt8(SByte integer) => BitConverter.GetBytes(integer);
+		public static byte[] WriteInt8(SByte integer) => new byte[] { (byte)integer };
 
 		public static Byte ReadUInt8(byte[] buffer) => ReadUInt8(new ReadOnlyMemory<byte>(buffer));
 		public static Byte ReadUInt8(ReadOnlyMemory<byte> buffer) => ReadUInt8(buffer.Span);
@@ -29,7 +29,7 @@ namespace FoolishTech.Support.Binary
 	
 			return (Byte)buffer.ToArray()[0];
 		}
-		public static byte[] WriteUInt8(Byte integer) => BitConverter.GetBytes(integer);
+		public static byte[] WriteUInt8(Byte integer) => new byte[] { integer };
 
 		public static Int16 ReadInt16(byte[] buffer, Endianess endianess = Endianess.SystemEndian) => ReadInt16(new ReadOnlyMemory<byte>(buffer), endianess);
 		public static Int16 ReadInt16(ReadOnlyMemory<byte> buffer, Endianess endianess = Endianess.SystemEndian) => ReadInt16(buffer.Span, endianess);
