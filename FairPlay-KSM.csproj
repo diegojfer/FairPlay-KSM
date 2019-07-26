@@ -26,6 +26,8 @@
     <Compile Include="src/Entities/Payload/StreamingIndicatorPayload.cs" />
     <Compile Include="src/Entities/Payload/TransactionPayload.cs" />
     <Compile Include="src/Entities/Payload/TRRPayload.cs" />
+    <Compile Include="src/Entities/Payload/Parcel/EncryptedCKParcel.cs" />
+    <Compile Include="src/Entities/Payload/Parcel/SKR1Parcel.cs" />
     <Compile Include="src/Entities/TLLVTag.cs" />
     <Compile Include="src/Entities/TLLVSlab.cs" />
     <Compile Include="src/Entities/SPCMessage.cs" />
