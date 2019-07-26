@@ -8,7 +8,7 @@ namespace FoolishTech.FairPlay.Entities.Payload
         private ReadOnlyMemory<byte> Storage { get; set; }
 
         internal byte[] IV { get => this.Storage.Slice(0, 16).ToArray(); }
-        internal byte[] Block { get => this.Storage.Slice(16, 96).ToArray(); }
+        internal byte[] Parcel { get => this.Storage.Slice(16, 96).ToArray(); }
 
         internal SKR1Payload(ReadOnlyMemory<byte> buffer)
         {

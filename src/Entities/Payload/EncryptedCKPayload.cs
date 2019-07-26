@@ -8,7 +8,7 @@ namespace FoolishTech.FairPlay.Entities.Payload
         private ReadOnlyMemory<byte> Storage { get; set; }
 
         internal byte[] IV { get => this.Storage.Slice(0, 16).ToArray(); }
-        internal byte[] Key { get => this.Storage.Slice(16, 16).ToArray(); }
+        internal byte[] Parcel { get => this.Storage.Slice(16, 16).ToArray(); }
 
         internal EncryptedCKPayload(ReadOnlyMemory<byte> buffer)
         {
