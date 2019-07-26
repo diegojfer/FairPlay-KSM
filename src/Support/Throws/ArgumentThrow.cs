@@ -10,6 +10,11 @@ namespace FoolishTech.Support.Throws
             if (creator != null) obj = creator();   
             if (obj == null) throw new ArgumentNullException(paramName, message);
         }
+
+        public static void IfNull(object obj, string message, string paramName)
+        {
+            if (obj == null) throw new ArgumentNullException(paramName, message);
+        }
         
         public static void IfLackingBytes(ReadOnlyMemory<byte> buffer, int size, string message, string paramName)
         {
