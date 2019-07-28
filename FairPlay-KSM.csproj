@@ -31,6 +31,7 @@
     <Compile Include="src/Entities/Payload/TRRPayload.cs" />
     <Compile Include="src/Entities/Payload/Parcel/EncryptedCKParcel.cs" />
     <Compile Include="src/Entities/Payload/Parcel/SKR1Parcel.cs" />
+    <Compile Include="src/Entities/HDCPEnforcement.cs" />
     <Compile Include="src/Entities/TLLVTag.cs" />
     <Compile Include="src/Entities/TLLVSlab.cs" />
     <Compile Include="src/Entities/SPCMessage.cs" />
