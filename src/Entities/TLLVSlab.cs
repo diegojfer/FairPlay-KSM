@@ -8,13 +8,15 @@ namespace FoolishTech.FairPlay.Entities
 {
     internal class TLLVSlab
     {
-        internal static IEnumerable<TLLVSlab> FromBuffer(ReadOnlyMemory<byte> buffer)
+        internal static IEnumerable<TLLVSlab> FromBuffer(byte[] buffer)
         {
+            ReadOnlyMemory<byte> memory = new ReadOnlyMemory<byte>(buffer);
+            
             IList<TLLVSlab> slabs = new List<TLLVSlab>();
-            while (buffer.Length > 0) {
-                var slab = new TLLVSlab(buffer);
+            while (memory.Length > 0) {
+                var slab = new TLLVSlab(memory);
                 slabs.Add(slab);
-                buffer = buffer.Slice((int)slab.Length);
+                memory = memory.Slice((int)slab.Length);
             }
             return slabs;
         }
