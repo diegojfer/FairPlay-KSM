@@ -36,5 +36,6 @@
     <Compile Include="src/Entities/TLLVSlab.cs" />
     <Compile Include="src/Entities/SPCMessage.cs" />
     <Compile Include="src/Entities/CKCMessage.cs" />
+    <Compile Include="src/FPProvider.cs" />
   </ItemGroup>
 </Project>
