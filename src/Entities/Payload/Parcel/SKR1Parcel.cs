@@ -13,6 +13,8 @@ namespace FoolishTech.FairPlay.Entities.Payload.Parcel
         internal byte[] R1 { get => this.Storage.Slice(36, 44).ToArray(); }
         internal byte[] Integrity { get => this.Storage.Slice(80, 16).ToArray(); }
 
+        internal byte[] Binary { get => this.Storage.ToArray(); }
+
         internal SKR1Parcel(ReadOnlyMemory<byte> buffer)
         {
             // ArgumentThrow.IfNull(() => buffer, "Invalid buffer length. The buffer must not be null.", nameof(buffer)); /* STRUCT CAN NOT BE NULL. */

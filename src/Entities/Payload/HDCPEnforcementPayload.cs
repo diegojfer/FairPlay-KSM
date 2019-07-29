@@ -10,6 +10,8 @@ namespace FoolishTech.FairPlay.Entities.Payload
         private ReadOnlyMemory<byte> Storage { get; set; }
 
         internal HDCPTypeRequierement Type { get => ((HDCPTypeRequierement)BinaryConverter.ReadUInt64(this.Storage.Slice(0, 8), BinaryConverter.Endianess.BigEndian)).DefinedOrDefault(); }
+        
+        internal byte[] Binary { get => this.Storage.ToArray(); }
 
         internal HDCPEnforcementPayload(ReadOnlyMemory<byte> buffer)
         {

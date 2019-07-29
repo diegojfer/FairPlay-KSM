@@ -12,6 +12,8 @@ namespace FoolishTech.FairPlay.Entities.Payload
         internal UInt32 RentalDuration { get => BinaryConverter.ReadUInt32(this.Storage.Slice(4, 4), BinaryConverter.Endianess.BigEndian); }
         internal DurationCKType Type { get => ((DurationCKType)BinaryConverter.ReadUInt32(this.Storage.Slice(8, 4), BinaryConverter.Endianess.BigEndian)).DefinedOrDefault(); }
         internal UInt32 FixedValue { get => BinaryConverter.ReadUInt32(this.Storage.Slice(12, 4), BinaryConverter.Endianess.BigEndian); }
+        
+        internal byte[] Binary { get => this.Storage.ToArray(); }
 
         internal DurationCKPayload(ReadOnlyMemory<byte> buffer)
         {

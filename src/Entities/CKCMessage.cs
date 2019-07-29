@@ -12,6 +12,8 @@ namespace FoolishTech.FairPlay.Entities
         internal byte[] IV { get => this.Storage.Slice(8, 16).ToArray(); }
         internal UInt32 ContentLength { get => BinaryConverter.ReadUInt32(this.Storage.Slice(24, 4), BinaryConverter.Endianess.BigEndian); }
         internal byte[] ContentPayload { get => this.Storage.Slice(28, (int)ContentLength).ToArray(); }
+        
+        internal byte[] Binary { get => this.Storage.ToArray(); }
 
         internal CKCMessage(ReadOnlyMemory<byte> buffer)
         {

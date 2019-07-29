@@ -28,6 +28,8 @@ namespace FoolishTech.FairPlay.Entities
         internal UInt32 ContentLength { get => BinaryConverter.ReadUInt32(this.Storage.Slice(12, 4), BinaryConverter.Endianess.BigEndian); }
         internal byte[] ContentPayload { get => this.Storage.Slice(16, (int)ContentLength).ToArray(); }
         internal T Payload<T>() => (T)Activator.CreateInstance(typeof(T), BindingFlags.NonPublic | BindingFlags.Instance, null, new Object[] { this.Storage.Slice(16, (int)ContentLength) }, null);
+        
+        internal byte[] Binary { get => this.Storage.ToArray(); }
       
         internal TLLVSlab(ReadOnlyMemory<byte> buffer)
         {

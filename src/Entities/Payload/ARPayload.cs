@@ -8,6 +8,8 @@ namespace FoolishTech.FairPlay.Entities.Payload
         private ReadOnlyMemory<byte> Storage { get; set; }
 
         internal byte[] AR { get => this.Storage.Slice(0, 16).ToArray(); }
+        
+        internal byte[] Binary { get => this.Storage.ToArray(); }
 
         internal ARPayload(ReadOnlyMemory<byte> buffer)
         {

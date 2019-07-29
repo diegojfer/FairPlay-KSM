@@ -29,6 +29,8 @@ namespace FoolishTech.FairPlay.Entities
         private ReadOnlyMemory<byte> Storage { get; set; }
 
         internal UInt64 Code { get => BinaryConverter.ReadUInt64(this.Storage.Slice(0, 8), BinaryConverter.Endianess.BigEndian); }
+        
+        internal byte[] Binary { get => this.Storage.ToArray(); }
 
         private TLLVTag(UInt64 code) : this(BinaryConverter.WriteUInt64(code, BinaryConverter.Endianess.BigEndian)) { }
         internal TLLVTag(ReadOnlyMemory<byte> buffer)

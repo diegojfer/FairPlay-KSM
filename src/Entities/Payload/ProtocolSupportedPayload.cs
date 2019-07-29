@@ -11,6 +11,8 @@ namespace FoolishTech.FairPlay.Entities.Payload
         private ReadOnlyMemory<byte> Storage { get; set; }
 
         internal IEnumerable<UInt32> Versions { get => Enumerable.Range(0, this.Storage.Length / 4).Select((i) => BinaryConverter.ReadUInt32(this.Storage.Slice(i * 4, 4), BinaryConverter.Endianess.BigEndian)); }
+        
+        internal byte[] Binary { get => this.Storage.ToArray(); }
 
         internal ProtocolSupportedPayload(ReadOnlyMemory<byte> buffer)
         {

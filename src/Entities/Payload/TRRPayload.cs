@@ -10,6 +10,8 @@ namespace FoolishTech.FairPlay.Entities.Payload
         private ReadOnlyMemory<byte> Storage { get; set; }
 
         internal IEnumerable<TLLVTag> TRR { get => Enumerable.Range(0, this.Storage.Length / 8).Select((i) => new TLLVTag(this.Storage.Slice(i * 8, 8))); }
+        
+        internal byte[] Binary { get => this.Storage.ToArray(); }
 
         internal TRRPayload(ReadOnlyMemory<byte> buffer)
         {

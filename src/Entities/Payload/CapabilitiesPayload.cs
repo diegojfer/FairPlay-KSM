@@ -10,8 +10,9 @@ namespace FoolishTech.FairPlay.Entities.Payload
         private ReadOnlyMemory<byte> Storage { get; set; }
 
         internal HighCapabilities HighCapabilities { get => ((HighCapabilities)BinaryConverter.ReadUInt64(this.Storage.Slice(0, 8), BinaryConverter.Endianess.BigEndian)).DefinedOrDefault(); }
-
         internal LowCapabilities LowCapabilities { get => ((LowCapabilities)BinaryConverter.ReadUInt64(this.Storage.Slice(8, 8), BinaryConverter.Endianess.BigEndian)).DefinedOrDefault(); }
+        
+        internal byte[] Binary { get => this.Storage.ToArray(); }
 
         internal CapabilitiesPayload(ReadOnlyMemory<byte> buffer)
         {

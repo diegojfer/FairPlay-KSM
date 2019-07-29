@@ -9,12 +9,11 @@ namespace FoolishTech.FairPlay.Entities.Payload
         private ReadOnlyMemory<byte> Storage { get; set; }
 
         internal UInt32 CreationEpoch { get => BinaryConverter.ReadUInt32(this.Storage.Slice(0, 4), BinaryConverter.Endianess.BigEndian); }
-
         internal DateTime CreationDate { get => new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc).AddSeconds(CreationEpoch); }
-
         internal MediaPlaybackState State { get => ((MediaPlaybackState)BinaryConverter.ReadUInt32(this.Storage.Slice(4, 4), BinaryConverter.Endianess.BigEndian)).DefinedOrDefault(); }
-
         internal UInt64 Session { get => BinaryConverter.ReadUInt64(this.Storage.Slice(8, 8), BinaryConverter.Endianess.BigEndian); }
+        
+        internal byte[] Binary { get => this.Storage.ToArray(); }
 
         internal MediaPlaybackPayload(ReadOnlyMemory<byte> buffer)
         {
