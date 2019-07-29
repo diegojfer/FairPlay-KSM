@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using System.Linq;
 using System.Collections.Generic;
 using FoolishTech.Support.Throws;
@@ -20,6 +21,15 @@ namespace FoolishTech.FairPlay.Entities.Payload
             ArgumentThrow.IfLengthNotMultiple(buffer, 4, $"Invalid buffer length. The buffer must contains the exact number of bytes to fill entity '{this.GetType().FullName}'.", nameof(buffer));
 
             this.Storage = buffer.Slice(0);
+        }
+
+        internal ProtocolSupportedPayload(IEnumerable<UInt32> versions)
+        {
+            ArgumentThrow.IfNull(versions, "Invalid version array. Version array can not be null.", nameof(versions));
+
+            var stream = new MemoryStream();
+            foreach (var version in versions) stream.Write(BinaryConverter.WriteUInt32(version, BinaryConverter.Endianess.BigEndian));
+            this.Storage = new ReadOnlyMemory<byte>(stream.ToArray());
         }
     }
 }

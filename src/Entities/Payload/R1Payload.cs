@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using FoolishTech.Support.Throws;
 
 namespace FoolishTech.FairPlay.Entities.Payload
@@ -17,6 +18,15 @@ namespace FoolishTech.FairPlay.Entities.Payload
             ArgumentThrow.IfLengthNot(buffer, 44, $"Invalid buffer length. The buffer must contains the exact number of bytes to fill entity '{this.GetType().FullName}'.", nameof(buffer));
             
             this.Storage = buffer.Slice(0, 44);
+        }
+
+        internal R1Payload(byte[] random)
+        {
+            ArgumentThrow.IfLengthNot(random, 44, $"Invalid random buffer length. The buffer must contains 44 bytes.", nameof(random));
+
+            var stream = new MemoryStream();
+            stream.Write(random);
+            this.Storage = new ReadOnlyMemory<byte>(stream.ToArray());
         }
     }
 }

@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using FoolishTech.Support.Binary;
 using FoolishTech.Support.Throws;
 
@@ -29,6 +30,24 @@ namespace FoolishTech.FairPlay.Entities
             ArgumentThrow.IfLengthNot(buffer, (int)length, $"Invalid buffer length. The buffer must contains the exact number of bytes to fill entity '{this.GetType().FullName}'.", nameof(buffer));
 
             this.Storage = buffer.Slice(0, (int)length);
+        }
+
+        internal SPCMessage(UInt32 version, byte[] iv, byte[] key, byte[] providerHash, byte[] payload)
+        {
+            ArgumentThrow.IfLengthNot(iv, 16, "Invalid IV buffer length. The buffer must contains 16 bytes.", nameof(iv));
+            ArgumentThrow.IfLengthNot(key, 128, "Invalid Key buffer length. The buffer must contains 128 bytes.", nameof(key));
+            ArgumentThrow.IfLengthNot(providerHash, 20, "Invalid Hash buffer length. The buffer must contains 20 bytes.", nameof(providerHash));
+            ArgumentThrow.IfLengthNotMultiple(payload, 16, "Invalid payload buffer length. The buffer length should be multiple of 16.", nameof(payload));
+
+            var stream = new MemoryStream();
+            stream.Write(BinaryConverter.WriteUInt32(version, BinaryConverter.Endianess.BigEndian));
+            stream.Write(BinaryConverter.WriteUInt32(0, BinaryConverter.Endianess.BigEndian));
+            stream.Write(iv);
+            stream.Write(key);
+            stream.Write(providerHash);
+            stream.Write(BinaryConverter.WriteUInt32((UInt32)payload.Length, BinaryConverter.Endianess.BigEndian));
+            stream.Write(payload);
+            this.Storage = new ReadOnlyMemory<byte>(stream.ToArray());
         }
     }
 }

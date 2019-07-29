@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using FoolishTech.Support.Throws;
 
 namespace FoolishTech.FairPlay.Entities.Payload
@@ -18,6 +19,17 @@ namespace FoolishTech.FairPlay.Entities.Payload
             ArgumentThrow.IfLengthNot(buffer, 112, $"Invalid buffer length. The buffer must contains the exact number of bytes to fill entity '{this.GetType().FullName}'.", nameof(buffer));
             
             this.Storage = buffer.Slice(0, 112);
+        }
+
+        internal SKR1Payload(byte[] iv, byte[] parcel)
+        {
+            ArgumentThrow.IfLengthNot(iv, 16, "Invalid IV buffer length. The buffer must contains 16 bytes.", nameof(iv));
+            ArgumentThrow.IfLengthNot(parcel, 96, "Invalid parcel buffer length. The buffer must contains 96 bytes.", nameof(parcel));
+
+            var stream = new MemoryStream();
+            stream.Write(iv);
+            stream.Write(parcel);
+            this.Storage = new ReadOnlyMemory<byte>(stream.ToArray());
         }
     }
 }

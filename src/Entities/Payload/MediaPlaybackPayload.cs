@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using FoolishTech.Support.Binary;
 using FoolishTech.Support.Throws;
 
@@ -8,8 +9,7 @@ namespace FoolishTech.FairPlay.Entities.Payload
     {
         private ReadOnlyMemory<byte> Storage { get; set; }
 
-        internal UInt32 CreationEpoch { get => BinaryConverter.ReadUInt32(this.Storage.Slice(0, 4), BinaryConverter.Endianess.BigEndian); }
-        internal DateTime CreationDate { get => new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc).AddSeconds(CreationEpoch); }
+        internal DateTime CreationDate { get => new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc).AddSeconds(BinaryConverter.ReadUInt32(this.Storage.Slice(0, 4), BinaryConverter.Endianess.BigEndian)); }
         internal MediaPlaybackState State { get => ((MediaPlaybackState)BinaryConverter.ReadUInt32(this.Storage.Slice(4, 4), BinaryConverter.Endianess.BigEndian)).DefinedOrDefault(); }
         internal UInt64 Session { get => BinaryConverter.ReadUInt64(this.Storage.Slice(8, 8), BinaryConverter.Endianess.BigEndian); }
         
@@ -21,6 +21,15 @@ namespace FoolishTech.FairPlay.Entities.Payload
             ArgumentThrow.IfLengthNot(buffer, 16, $"Invalid buffer length. The buffer must contains the exact number of bytes to fill entity '{this.GetType().FullName}'.", nameof(buffer));
 
             this.Storage = buffer.Slice(0, 16);
+        }
+
+        internal MediaPlaybackPayload(DateTime creationDate, MediaPlaybackState state, UInt64 session)
+        {
+            var stream = new MemoryStream();
+            stream.Write(BinaryConverter.WriteUInt32((UInt32)(new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc) - creationDate).TotalSeconds, BinaryConverter.Endianess.BigEndian));
+            stream.Write(BinaryConverter.WriteUInt32((UInt32)state.DefinedOrDefault(), BinaryConverter.Endianess.BigEndian));
+            stream.Write(BinaryConverter.WriteUInt64(session, BinaryConverter.Endianess.BigEndian));
+            this.Storage = new ReadOnlyMemory<byte>(stream.ToArray());
         }
 
     }
