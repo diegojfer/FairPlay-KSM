@@ -30,6 +30,15 @@ namespace FoolishTech.FairPlay.Entities.Payload
             stream.Write(BinaryConverter.WriteUInt64((UInt64)lowCapabilities.DefinedOrDefault(), BinaryConverter.Endianess.BigEndian));
             this.Storage = new ReadOnlyMemory<byte>(stream.ToArray());
         }
+
+        internal bool HasCapability(HighCapabilities highCapability)
+        {
+            return (this.HighCapabilities & highCapability.DefinedOrDefault()) > 0;
+        }
+        internal bool HasCapability(LowCapabilities lowCapabilities)
+        {
+            return (this.LowCapabilities & lowCapabilities.DefinedOrDefault()) > 0;
+        }
     }
 
     [Flags]
