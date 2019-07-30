@@ -36,6 +36,13 @@
     <Compile Include="src/Entities/TLLVSlab.cs" />
     <Compile Include="src/Entities/SPCMessage.cs" />
     <Compile Include="src/Entities/CKCMessage.cs" />
+    <Compile Include="src/Exceptions/FPException.cs" />
+    <Compile Include="src/Exceptions/FPContextDateViolatedException.cs" />
+    <Compile Include="src/Exceptions/FPContextIntegrityViolatedException.cs" />
+    <Compile Include="src/Exceptions/FPInvalidContextException.cs" />
+    <Compile Include="src/Exceptions/FPInvalidKeyException.cs" />
+    <Compile Include="src/Exceptions/FPInvalidProviderException.cs" />
+    <Compile Include="src/Exceptions/FPKeyLocatorException.cs" />
     <Compile Include="src/FPProvider.cs" />
   </ItemGroup>
 </Project>
