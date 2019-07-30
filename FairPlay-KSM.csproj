@@ -10,8 +10,9 @@
     <Compile Include="src/Main.cs" />
     <Compile Include="src/Support/Throws/ArgumentThrow.cs" />
     <Compile Include="src/Support/Binary/BinaryConverter.cs" />
-    <Compile Include="src/Crypto/SKR1Crypto.cs" />
+    <Compile Include="src/Crypto/DFunction.cs" />
     <Compile Include="src/Crypto/EncryptedCKCrypto.cs" />
+    <Compile Include="src/Crypto/SKR1Crypto.cs" />
     <Compile Include="src/Crypto/TLLVCrypto.cs" />
     <Compile Include="src/Entities/Payload/ARPayload.cs" />
     <Compile Include="src/Entities/Payload/AssetPayload.cs" />
