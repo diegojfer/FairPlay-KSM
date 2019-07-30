@@ -58,5 +58,29 @@ namespace FoolishTech.FairPlay.Crypto
                 }
             }
         }
+
+        public static byte[] ScrambledPayload(byte[] payload, byte[] iv, byte[] key)
+        {
+            ArgumentThrow.IfLengthNotMultiple(payload, 16, "Invalid payload to scramble. The buffer length should be multiple of 16.", nameof(payload));
+            ArgumentThrow.IfLengthNot(iv, 16, "Invalid key to scramble. Key buffer should be 16 bytes.", nameof(iv));
+            ArgumentThrow.IfLengthNot(key, 16, "Invalid key to scramble. Key buffer should be 16 bytes.", nameof(key));
+
+            using (var aes = Aes.Create())
+            {
+                aes.IV = iv;
+                aes.Key = key;
+                aes.Mode = CipherMode.CBC;
+                aes.Padding = PaddingMode.None;
+
+                using (var encryptor = aes.CreateEncryptor())
+                using (var memoryStream = new MemoryStream())
+                using (var cryptoStream = new CryptoStream(memoryStream, encryptor, CryptoStreamMode.Write))
+                {
+                    cryptoStream.Write(payload);
+                    
+                    return memoryStream.ToArray();
+                }
+            }
+        }
     }
 }
