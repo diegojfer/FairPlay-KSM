@@ -43,6 +43,8 @@
     <Compile Include="src/Exceptions/FPInvalidKeyException.cs" />
     <Compile Include="src/Exceptions/FPInvalidProviderException.cs" />
     <Compile Include="src/Exceptions/FPKeyLocatorException.cs" />
+    <Compile Include="src/Interfaces/IContentKey.cs" />
+    <Compile Include="src/Interfaces/IContentKeyLocator.cs" />
     <Compile Include="src/FPProvider.cs" />
   </ItemGroup>
 </Project>
