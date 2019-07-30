@@ -46,5 +46,6 @@
     <Compile Include="src/Interfaces/IContentKey.cs" />
     <Compile Include="src/Interfaces/IContentKeyLocator.cs" />
     <Compile Include="src/FPProvider.cs" />
+    <Compile Include="src/FPServer.cs" />
   </ItemGroup>
 </Project>
