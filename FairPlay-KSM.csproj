@@ -1,12 +1,49 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp2.2</TargetFramework>
     <RootNamespace>FoolishTech</RootNamespace>
     <EnableDefaultCompileItems>False</EnableDefaultCompileItems>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="src/Main.cs" />
+    <Compile Include="src/Support/Throws/ArgumentThrow.cs" />
+    <Compile Include="src/Support/Binary/BinaryConverter.cs" />
+    <Compile Include="src/Crypto/DFunction.cs" />
+    <Compile Include="src/Crypto/EncryptedCKCrypto.cs" />
+    <Compile Include="src/Crypto/SKR1Crypto.cs" />
+    <Compile Include="src/Crypto/TLLVCrypto.cs" />
+    <Compile Include="src/Entities/Payload/ARPayload.cs" />
+    <Compile Include="src/Entities/Payload/AssetPayload.cs" />
+    <Compile Include="src/Entities/Payload/CapabilitiesPayload.cs" />
+    <Compile Include="src/Entities/Payload/DurationCKPayload.cs" />
+    <Compile Include="src/Entities/Payload/EncryptedCKPayload.cs" />
+    <Compile Include="src/Entities/Payload/HDCPEnforcementPayload.cs" />
+    <Compile Include="src/Entities/Payload/MediaPlaybackPayload.cs" />
+    <Compile Include="src/Entities/Payload/ProtocolSupportedPayload.cs" />
+    <Compile Include="src/Entities/Payload/ProtocolUsedPayload.cs" />
+    <Compile Include="src/Entities/Payload/R1Payload.cs" />
+    <Compile Include="src/Entities/Payload/R2Payload.cs" />
+    <Compile Include="src/Entities/Payload/SKR1IntegrityPayload.cs" />
+    <Compile Include="src/Entities/Payload/SKR1Payload.cs" />
+    <Compile Include="src/Entities/Payload/StreamingIndicatorPayload.cs" />
+    <Compile Include="src/Entities/Payload/TransactionPayload.cs" />
+    <Compile Include="src/Entities/Payload/TRRPayload.cs" />
+    <Compile Include="src/Entities/Payload/Parcel/EncryptedCKParcel.cs" />
+    <Compile Include="src/Entities/Payload/Parcel/SKR1Parcel.cs" />
+    <Compile Include="src/Entities/TLLVTag.cs" />
+    <Compile Include="src/Entities/TLLVSlab.cs" />
+    <Compile Include="src/Entities/SPCMessage.cs" />
+    <Compile Include="src/Entities/CKCMessage.cs" />
+    <Compile Include="src/Exceptions/FPException.cs" />
+    <Compile Include="src/Exceptions/FPContextDateViolatedException.cs" />
+    <Compile Include="src/Exceptions/FPContextIntegrityViolatedException.cs" />
+    <Compile Include="src/Exceptions/FPInvalidContextException.cs" />
+    <Compile Include="src/Exceptions/FPInvalidKeyException.cs" />
+    <Compile Include="src/Exceptions/FPInvalidProviderException.cs" />
+    <Compile Include="src/Exceptions/FPKeyLocatorException.cs" />
+    <Compile Include="src/Interfaces/IContentKey.cs" />
+    <Compile Include="src/Interfaces/IContentKeyLocator.cs" />
+    <Compile Include="src/FPProvider.cs" />
+    <Compile Include="src/FPServer.cs" />
   </ItemGroup>
 </Project>
