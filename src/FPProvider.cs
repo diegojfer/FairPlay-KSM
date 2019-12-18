@@ -1,3 +1,4 @@
+using System;
 using System.Security.Cryptography;
 using System.Security.Cryptography.X509Certificates;
 
@@ -15,15 +16,23 @@ namespace FoolishTech.FairPlay
         public string Name { get => this.Certificate.Subject; }
         public byte[] Hash { get => this.Certificate.GetCertHash(); }
 
-        public FPProvider(X509Certificate certificate, RSAParameters key, byte[] ask)
+        public FPProvider(byte[] certificate, string password, byte[] ask) 
         {
             ArgumentThrow.IfNull(certificate, "Invalid FairPlay Certificate. Certificate can not be null.", nameof(certificate));
-            ArgumentThrow.IfNull(key, "Invalid FairPlay Certificate Key. RSAParameters can not be null.", nameof(key));
+            ArgumentThrow.IfNull(password, "Invalid FairPlay Certificate passphrase. Passphrase can not be null.", nameof(password));
             ArgumentThrow.IfLengthNot(ask, 16, "Invalid Application Secret Key. ASK buffer should be 16 bytes.", nameof(ask));
 
-            this.Certificate = certificate;
-            this.RSAKey = key;
-            this.ASKey = ask;
+            try {
+                X509Certificate2 X509 = new X509Certificate2(certificate, password, X509KeyStorageFlags.Exportable);
+
+                using (var rsa = X509.GetRSAPrivateKey()) {
+                    this.Certificate = X509;
+                    this.RSAKey = rsa.ExportParameters(true);
+                    this.ASKey = ask;
+                }
+            } catch (Exception ex) {
+                throw new ArgumentException("Invalid FairPlay Certificate. Certificate can not be read.", nameof(certificate), ex);
+            }
         }
     }
 }

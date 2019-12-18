@@ -207,7 +207,7 @@ namespace FoolishTech.FairPlay
                 catch (Exception ex) { throw new FPInvalidContextException("EXC_0027", "Unable to process SPC. See 'innerException' for more information.", ex); }
             
                 if (MediaPlaybackPayload.CreationDate < DateTime.UtcNow.AddHours(-6)) throw new FPContextDateViolatedException("EXC_0036", "Unable to process SPC. Date range violated.");
-                if (MediaPlaybackPayload.CreationDate > DateTime.UtcNow.AddHours(-6)) throw new FPContextDateViolatedException("EXC_0037", "Unable to process SPC. Date range violated.");
+                if (MediaPlaybackPayload.CreationDate > DateTime.UtcNow.AddHours(6))  throw new FPContextDateViolatedException("EXC_0037", "Unable to process SPC. Date range violated.");
                 
                 DurationCKPayload DurationContentKeyPayload = null;
                 try { DurationContentKeyPayload = new DurationCKPayload((UInt32)this.LicenseDuration, 0, DurationCKType.Rental); }
