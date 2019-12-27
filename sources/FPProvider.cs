@@ -8,13 +8,14 @@ namespace FoolishTech.FairPlay
 {
     public sealed class FPProvider
     {
-        internal X509Certificate Certificate { get; private set; }
+        internal X509Certificate RSACertificate { get; private set; }
         internal RSAParameters RSAKey { get; private set; }
         internal byte[] ASKey { get; private set; } 
 
-        public string Identifier { get => this.Certificate.GetCertHashString(); }
-        public string Name { get => this.Certificate.Subject; }
-        public byte[] Hash { get => this.Certificate.GetCertHash(); }
+        public string Identifier { get => this.RSACertificate.GetCertHashString(); }
+        public string Name { get => this.RSACertificate.Subject; }
+        public byte[] Hash { get => this.RSACertificate.GetCertHash(); }
+        public byte[] Certificate { get => this.RSACertificate.Export(X509ContentType.Cert); }
 
         public FPProvider(byte[] certificate, string password, byte[] ask) 
         {
@@ -26,7 +27,7 @@ namespace FoolishTech.FairPlay
                 X509Certificate2 X509 = new X509Certificate2(certificate, password, X509KeyStorageFlags.Exportable);
 
                 using (var rsa = X509.GetRSAPrivateKey()) {
-                    this.Certificate = X509;
+                    this.RSACertificate = X509;
                     this.RSAKey = rsa.ExportParameters(true);
                     this.ASKey = ask;
                 }
