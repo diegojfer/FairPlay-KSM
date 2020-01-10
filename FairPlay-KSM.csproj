@@ -4,6 +4,15 @@
     <TargetFramework>netcoreapp2.2</TargetFramework>
     <RootNamespace>FoolishTech</RootNamespace>
     <EnableDefaultCompileItems>False</EnableDefaultCompileItems>
+    <IsPackable>true</IsPackable>
+    <PackageVersion>1.3.0</PackageVersion>
+    <PackageId>FoolishTech.FairPlay</PackageId>
+    <Title>FairPlay Security Module</Title>
+    <PackageDescription>Implementation of FairPlay Security Module for entitlement delivery.</PackageDescription>
+    <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
+    <Authors>diegofer, diegojfer</Authors>
+    <PackageTags>fairplay, ksm, key, security, server, module, apple, ios, iphone, hls, video, drm, client</PackageTags>
+    <RepositoryUrl>https://github.com/diegojfer/FairPlay-KSM.git</RepositoryUrl>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="sources/Support/Throws/ArgumentThrow.cs" />
@@ -45,5 +54,10 @@
     <Compile Include="sources/Interfaces/IContentKeyLocator.cs" />
     <Compile Include="sources/FPProvider.cs" />
     <Compile Include="sources/FPServer.cs" />
+    <Compile Include="sources/FPExtractor.cs" />
+    <Compile Include="sources/Models/FPStaticKey.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="LICENSE.md" Pack="true" PackagePath="$(PackageLicenseFile)"/>
   </ItemGroup>
 </Project>

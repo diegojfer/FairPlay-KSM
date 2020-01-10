@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <RootNamespace>FoolishTech.FairPlay.HTTPLicenser</RootNamespace>
+    <EnableDefaultCompileItems>False</EnableDefaultCompileItems>
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <Compile Include="src/Program.cs" />
+    <Compile Include="src/Startup.cs" />
+    <Compile Include="src/controllers/FairPlayController.cs" />
+    <Compile Include="src/entities/CertificateResponseDto.cs" />
+    <Compile Include="src/entities/LicenseRequestDto.cs" />
+    <Compile Include="src/entities/LicenseResponseDto.cs" />
+    <Compile Include="src/fairplay/Secrets.cs" />
+    <Compile Include="src/fairplay/HardcodedKeyLocator.cs" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <ProjectReference Include="../../FairPlay-KSM.csproj" />
+  </ItemGroup>
+</Project>
