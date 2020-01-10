@@ -45,6 +45,7 @@
     <Compile Include="sources/Interfaces/IContentKeyLocator.cs" />
     <Compile Include="sources/FPProvider.cs" />
     <Compile Include="sources/FPServer.cs" />
+    <Compile Include="sources/FPExtractor.cs" />
     <Compile Include="sources/Models/FPStaticKey.cs" />
   </ItemGroup>
 </Project>
