@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <RootNamespace>FoolishTech.FairPlay.SPCCKCSniffer</RootNamespace>
+    <EnableDefaultCompileItems>False</EnableDefaultCompileItems>
+    <OutputType>Exe</OutputType>
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <Compile Include="src/Program.cs" />
+    <Compile Include="src/fairplay/Secrets.cs" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <ProjectReference Include="../../FairPlay-KSM.csproj" />
+  </ItemGroup>
+</Project>
