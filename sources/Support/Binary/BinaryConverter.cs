@@ -2,38 +2,38 @@ using System;
 
 namespace FoolishTech.Support.Binary
 {
-    public static class BinaryConverter
+    internal static class BinaryConverter
     {
-        public enum Endianess 
+        internal enum Endianess 
         {
             SystemEndian,
             LittleEndian,
             BigEndian
         }
 
-		public static SByte ReadInt8(byte[] buffer) => ReadInt8(new ReadOnlyMemory<byte>(buffer));
-		public static SByte ReadInt8(ReadOnlyMemory<byte> buffer) => ReadInt8(buffer.Span);
-		public static SByte ReadInt8(ReadOnlySpan<byte> buffer)	
+		internal static SByte ReadInt8(byte[] buffer) => ReadInt8(new ReadOnlyMemory<byte>(buffer));
+		internal static SByte ReadInt8(ReadOnlyMemory<byte> buffer) => ReadInt8(buffer.Span);
+		internal static SByte ReadInt8(ReadOnlySpan<byte> buffer)	
 		{
 			if (buffer.Length != 1) throw new ArgumentException(nameof(buffer), "Invalid buffer length. The length must be the same of target integer.");
 	
 			return (SByte)buffer.ToArray()[0];
 		}
-		public static byte[] WriteInt8(SByte integer) => new byte[] { (byte)integer };
+		internal static byte[] WriteInt8(SByte integer) => new byte[] { (byte)integer };
 
-		public static Byte ReadUInt8(byte[] buffer) => ReadUInt8(new ReadOnlyMemory<byte>(buffer));
-		public static Byte ReadUInt8(ReadOnlyMemory<byte> buffer) => ReadUInt8(buffer.Span);
-		public static Byte ReadUInt8(ReadOnlySpan<byte> buffer)
+		internal static Byte ReadUInt8(byte[] buffer) => ReadUInt8(new ReadOnlyMemory<byte>(buffer));
+		internal static Byte ReadUInt8(ReadOnlyMemory<byte> buffer) => ReadUInt8(buffer.Span);
+		internal static Byte ReadUInt8(ReadOnlySpan<byte> buffer)
 		{
 			if (buffer.Length != 1) throw new ArgumentException(nameof(buffer), "Invalid buffer length. The length must be the same of target integer.");
 	
 			return (Byte)buffer.ToArray()[0];
 		}
-		public static byte[] WriteUInt8(Byte integer) => new byte[] { integer };
+		internal static byte[] WriteUInt8(Byte integer) => new byte[] { integer };
 
-		public static Int16 ReadInt16(byte[] buffer, Endianess endianess = Endianess.SystemEndian) => ReadInt16(new ReadOnlyMemory<byte>(buffer), endianess);
-		public static Int16 ReadInt16(ReadOnlyMemory<byte> buffer, Endianess endianess = Endianess.SystemEndian) => ReadInt16(buffer.Span, endianess);
-		public static Int16 ReadInt16(ReadOnlySpan<byte> buffer, Endianess endianess = Endianess.SystemEndian)
+		internal static Int16 ReadInt16(byte[] buffer, Endianess endianess = Endianess.SystemEndian) => ReadInt16(new ReadOnlyMemory<byte>(buffer), endianess);
+		internal static Int16 ReadInt16(ReadOnlyMemory<byte> buffer, Endianess endianess = Endianess.SystemEndian) => ReadInt16(buffer.Span, endianess);
+		internal static Int16 ReadInt16(ReadOnlySpan<byte> buffer, Endianess endianess = Endianess.SystemEndian)
 		{
 			if (buffer.Length != 2) throw new ArgumentException(nameof(buffer), "Invalid buffer length. The length must be the same of target integer.");
 			
@@ -46,7 +46,7 @@ namespace FoolishTech.Support.Binary
 				return BitConverter.ToInt16(buffer);
 			}
 		}
-		public static byte[] WriteInt16(Int16 integer, Endianess endianess = Endianess.SystemEndian) 
+		internal static byte[] WriteInt16(Int16 integer, Endianess endianess = Endianess.SystemEndian) 
 		{
 			byte[] buffer = BitConverter.GetBytes(integer);
 
@@ -59,9 +59,9 @@ namespace FoolishTech.Support.Binary
 			return buffer;
 		}
 
-		public static UInt16 ReadUInt16(byte[] buffer, Endianess endianess = Endianess.SystemEndian) => ReadUInt16(new ReadOnlyMemory<byte>(buffer), endianess);
-		public static UInt16 ReadUInt16(ReadOnlyMemory<byte> buffer, Endianess endianess = Endianess.SystemEndian) => ReadUInt16(buffer.Span, endianess);
-		public static UInt16 ReadUInt16(ReadOnlySpan<byte> buffer, Endianess endianess = Endianess.SystemEndian)
+		internal static UInt16 ReadUInt16(byte[] buffer, Endianess endianess = Endianess.SystemEndian) => ReadUInt16(new ReadOnlyMemory<byte>(buffer), endianess);
+		internal static UInt16 ReadUInt16(ReadOnlyMemory<byte> buffer, Endianess endianess = Endianess.SystemEndian) => ReadUInt16(buffer.Span, endianess);
+		internal static UInt16 ReadUInt16(ReadOnlySpan<byte> buffer, Endianess endianess = Endianess.SystemEndian)
 		{
 			if (buffer.Length != 2) throw new ArgumentException(nameof(buffer), "Invalid buffer length. The length must be the same of target integer.");
 			
@@ -74,7 +74,7 @@ namespace FoolishTech.Support.Binary
 				return BitConverter.ToUInt16(buffer);
 			}
 		}
-		public static byte[] WriteUInt16(UInt16 integer, Endianess endianess = Endianess.SystemEndian) 
+		internal static byte[] WriteUInt16(UInt16 integer, Endianess endianess = Endianess.SystemEndian) 
 		{
 			byte[] buffer = BitConverter.GetBytes(integer);
 
@@ -87,9 +87,9 @@ namespace FoolishTech.Support.Binary
 			return buffer;
 		}
 
-		public static Int32 ReadInt32(byte[] buffer, Endianess endianess = Endianess.SystemEndian) => ReadInt32(new ReadOnlyMemory<byte>(buffer), endianess);
-		public static Int32 ReadInt32(ReadOnlyMemory<byte> buffer, Endianess endianess = Endianess.SystemEndian) => ReadInt32(buffer.Span, endianess);
-		public static Int32 ReadInt32(ReadOnlySpan<byte> buffer, Endianess endianess = Endianess.SystemEndian)
+		internal static Int32 ReadInt32(byte[] buffer, Endianess endianess = Endianess.SystemEndian) => ReadInt32(new ReadOnlyMemory<byte>(buffer), endianess);
+		internal static Int32 ReadInt32(ReadOnlyMemory<byte> buffer, Endianess endianess = Endianess.SystemEndian) => ReadInt32(buffer.Span, endianess);
+		internal static Int32 ReadInt32(ReadOnlySpan<byte> buffer, Endianess endianess = Endianess.SystemEndian)
 		{
 			if (buffer.Length != 4) throw new ArgumentException(nameof(buffer), "Invalid buffer length. The length must be the same of target integer.");
 			
@@ -102,7 +102,7 @@ namespace FoolishTech.Support.Binary
 				return BitConverter.ToInt32(buffer);
 			}
 		}
-		public static byte[] WriteInt32(Int32 integer, Endianess endianess = Endianess.SystemEndian) 
+		internal static byte[] WriteInt32(Int32 integer, Endianess endianess = Endianess.SystemEndian) 
 		{
 			byte[] buffer = BitConverter.GetBytes(integer);
 
@@ -115,9 +115,9 @@ namespace FoolishTech.Support.Binary
 			return buffer;
 		}
 
-        public static UInt32 ReadUInt32(byte[] buffer, Endianess endianess = Endianess.SystemEndian) => ReadUInt32(new ReadOnlyMemory<byte>(buffer), endianess);
-		public static UInt32 ReadUInt32(ReadOnlyMemory<byte> buffer, Endianess endianess = Endianess.SystemEndian) => ReadUInt32(buffer.Span, endianess);
-		public static UInt32 ReadUInt32(ReadOnlySpan<byte> buffer, Endianess endianess = Endianess.SystemEndian)
+        internal static UInt32 ReadUInt32(byte[] buffer, Endianess endianess = Endianess.SystemEndian) => ReadUInt32(new ReadOnlyMemory<byte>(buffer), endianess);
+		internal static UInt32 ReadUInt32(ReadOnlyMemory<byte> buffer, Endianess endianess = Endianess.SystemEndian) => ReadUInt32(buffer.Span, endianess);
+		internal static UInt32 ReadUInt32(ReadOnlySpan<byte> buffer, Endianess endianess = Endianess.SystemEndian)
 		{
 			if (buffer.Length != 4) throw new ArgumentException(nameof(buffer), "Invalid buffer length. The length must be the same of target integer.");
 			
@@ -130,7 +130,7 @@ namespace FoolishTech.Support.Binary
 				return BitConverter.ToUInt32(buffer);
 			}
 		}
-		public static byte[] WriteUInt32(UInt32 integer, Endianess endianess = Endianess.SystemEndian) 
+		internal static byte[] WriteUInt32(UInt32 integer, Endianess endianess = Endianess.SystemEndian) 
 		{
 			byte[] buffer = BitConverter.GetBytes(integer);
 
@@ -143,9 +143,9 @@ namespace FoolishTech.Support.Binary
 			return buffer;
 		}
 
-        public static Int64 ReadInt64(byte[] buffer, Endianess endianess = Endianess.SystemEndian) => ReadInt64(new ReadOnlyMemory<byte>(buffer), endianess);
-		public static Int64 ReadInt64(ReadOnlyMemory<byte> buffer, Endianess endianess = Endianess.SystemEndian) => ReadInt64(buffer.Span, endianess);
-		public static Int64 ReadInt64(ReadOnlySpan<byte> buffer, Endianess endianess = Endianess.SystemEndian)
+        internal static Int64 ReadInt64(byte[] buffer, Endianess endianess = Endianess.SystemEndian) => ReadInt64(new ReadOnlyMemory<byte>(buffer), endianess);
+		internal static Int64 ReadInt64(ReadOnlyMemory<byte> buffer, Endianess endianess = Endianess.SystemEndian) => ReadInt64(buffer.Span, endianess);
+		internal static Int64 ReadInt64(ReadOnlySpan<byte> buffer, Endianess endianess = Endianess.SystemEndian)
 		{
 			if (buffer.Length != 8) throw new ArgumentException(nameof(buffer), "Invalid buffer length. The length must be the same of target integer.");
 			
@@ -158,7 +158,7 @@ namespace FoolishTech.Support.Binary
 				return BitConverter.ToInt64(buffer);
 			}
 		}
-		public static byte[] WriteInt64(Int64 integer, Endianess endianess = Endianess.SystemEndian) 
+		internal static byte[] WriteInt64(Int64 integer, Endianess endianess = Endianess.SystemEndian) 
 		{
 			byte[] buffer = BitConverter.GetBytes(integer);
 
@@ -171,9 +171,9 @@ namespace FoolishTech.Support.Binary
 			return buffer;
 		}
 
-        public static UInt64 ReadUInt64(byte[] buffer, Endianess endianess = Endianess.SystemEndian) => ReadUInt64(new ReadOnlyMemory<byte>(buffer), endianess);
-        public static UInt64 ReadUInt64(ReadOnlyMemory<byte> buffer, Endianess endianess = Endianess.SystemEndian) => ReadUInt64(buffer.Span, endianess);
-        public static UInt64 ReadUInt64(ReadOnlySpan<byte> buffer, Endianess endianess = Endianess.SystemEndian)
+        internal static UInt64 ReadUInt64(byte[] buffer, Endianess endianess = Endianess.SystemEndian) => ReadUInt64(new ReadOnlyMemory<byte>(buffer), endianess);
+        internal static UInt64 ReadUInt64(ReadOnlyMemory<byte> buffer, Endianess endianess = Endianess.SystemEndian) => ReadUInt64(buffer.Span, endianess);
+        internal static UInt64 ReadUInt64(ReadOnlySpan<byte> buffer, Endianess endianess = Endianess.SystemEndian)
         {
             if (buffer.Length != 8) throw new ArgumentException(nameof(buffer), "Invalid buffer length. The length must be the same of target integer.");
 
@@ -186,7 +186,7 @@ namespace FoolishTech.Support.Binary
                 return BitConverter.ToUInt64(buffer);
             }
         }				
-		public static byte[] WriteUInt64(UInt64 integer, Endianess endianess = Endianess.SystemEndian) 
+		internal static byte[] WriteUInt64(UInt64 integer, Endianess endianess = Endianess.SystemEndian) 
 		{
 			byte[] buffer = BitConverter.GetBytes(integer);
 
@@ -199,7 +199,7 @@ namespace FoolishTech.Support.Binary
 			return buffer;
 		}
 
-        public static bool ShouldReverseBytes(Endianess endianess) 
+        internal static bool ShouldReverseBytes(Endianess endianess) 
         {
             if (endianess == Endianess.SystemEndian) return false;
             if (endianess == Endianess.LittleEndian && BitConverter.IsLittleEndian == false) return true;
