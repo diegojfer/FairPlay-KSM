@@ -4,46 +4,60 @@
     <TargetFramework>netcoreapp2.2</TargetFramework>
     <RootNamespace>FoolishTech</RootNamespace>
     <EnableDefaultCompileItems>False</EnableDefaultCompileItems>
+    <IsPackable>true</IsPackable>
+    <PackageVersion>1.3.0</PackageVersion>
+    <PackageId>FoolishTech.FairPlay</PackageId>
+    <Title>FairPlay Security Module</Title>
+    <PackageDescription>Implementation of FairPlay Security Module for entitlement delivery.</PackageDescription>
+    <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
+    <Authors>diegofer, diegojfer</Authors>
+    <PackageTags>fairplay, ksm, key, security, server, module, apple, ios, iphone, hls, video, drm, client</PackageTags>
+    <RepositoryUrl>https://github.com/diegojfer/FairPlay-KSM.git</RepositoryUrl>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="src/Support/Throws/ArgumentThrow.cs" />
-    <Compile Include="src/Support/Binary/BinaryConverter.cs" />
-    <Compile Include="src/Crypto/DFunction.cs" />
-    <Compile Include="src/Crypto/EncryptedCKCrypto.cs" />
-    <Compile Include="src/Crypto/SKR1Crypto.cs" />
-    <Compile Include="src/Crypto/TLLVCrypto.cs" />
-    <Compile Include="src/Entities/Payload/ARPayload.cs" />
-    <Compile Include="src/Entities/Payload/AssetPayload.cs" />
-    <Compile Include="src/Entities/Payload/CapabilitiesPayload.cs" />
-    <Compile Include="src/Entities/Payload/DurationCKPayload.cs" />
-    <Compile Include="src/Entities/Payload/EncryptedCKPayload.cs" />
-    <Compile Include="src/Entities/Payload/HDCPEnforcementPayload.cs" />
-    <Compile Include="src/Entities/Payload/MediaPlaybackPayload.cs" />
-    <Compile Include="src/Entities/Payload/ProtocolSupportedPayload.cs" />
-    <Compile Include="src/Entities/Payload/ProtocolUsedPayload.cs" />
-    <Compile Include="src/Entities/Payload/R1Payload.cs" />
-    <Compile Include="src/Entities/Payload/R2Payload.cs" />
-    <Compile Include="src/Entities/Payload/SKR1IntegrityPayload.cs" />
-    <Compile Include="src/Entities/Payload/SKR1Payload.cs" />
-    <Compile Include="src/Entities/Payload/StreamingIndicatorPayload.cs" />
-    <Compile Include="src/Entities/Payload/TransactionPayload.cs" />
-    <Compile Include="src/Entities/Payload/TRRPayload.cs" />
-    <Compile Include="src/Entities/Payload/Parcel/EncryptedCKParcel.cs" />
-    <Compile Include="src/Entities/Payload/Parcel/SKR1Parcel.cs" />
-    <Compile Include="src/Entities/TLLVTag.cs" />
-    <Compile Include="src/Entities/TLLVSlab.cs" />
-    <Compile Include="src/Entities/SPCMessage.cs" />
-    <Compile Include="src/Entities/CKCMessage.cs" />
-    <Compile Include="src/Exceptions/FPException.cs" />
-    <Compile Include="src/Exceptions/FPContextDateViolatedException.cs" />
-    <Compile Include="src/Exceptions/FPContextIntegrityViolatedException.cs" />
-    <Compile Include="src/Exceptions/FPInvalidContextException.cs" />
-    <Compile Include="src/Exceptions/FPInvalidKeyException.cs" />
-    <Compile Include="src/Exceptions/FPInvalidProviderException.cs" />
-    <Compile Include="src/Exceptions/FPKeyLocatorException.cs" />
-    <Compile Include="src/Interfaces/IContentKey.cs" />
-    <Compile Include="src/Interfaces/IContentKeyLocator.cs" />
-    <Compile Include="src/FPProvider.cs" />
-    <Compile Include="src/FPServer.cs" />
+    <Compile Include="sources/Support/Throws/ArgumentThrow.cs" />
+    <Compile Include="sources/Support/Binary/BinaryConverter.cs" />
+    <Compile Include="sources/Crypto/DFunction.cs" />
+    <Compile Include="sources/Crypto/EncryptedCKCrypto.cs" />
+    <Compile Include="sources/Crypto/SKR1Crypto.cs" />
+    <Compile Include="sources/Crypto/TLLVCrypto.cs" />
+    <Compile Include="sources/Entities/Payload/ARPayload.cs" />
+    <Compile Include="sources/Entities/Payload/AssetPayload.cs" />
+    <Compile Include="sources/Entities/Payload/CapabilitiesPayload.cs" />
+    <Compile Include="sources/Entities/Payload/DurationCKPayload.cs" />
+    <Compile Include="sources/Entities/Payload/EncryptedCKPayload.cs" />
+    <Compile Include="sources/Entities/Payload/HDCPEnforcementPayload.cs" />
+    <Compile Include="sources/Entities/Payload/MediaPlaybackPayload.cs" />
+    <Compile Include="sources/Entities/Payload/ProtocolSupportedPayload.cs" />
+    <Compile Include="sources/Entities/Payload/ProtocolUsedPayload.cs" />
+    <Compile Include="sources/Entities/Payload/R1Payload.cs" />
+    <Compile Include="sources/Entities/Payload/R2Payload.cs" />
+    <Compile Include="sources/Entities/Payload/SKR1IntegrityPayload.cs" />
+    <Compile Include="sources/Entities/Payload/SKR1Payload.cs" />
+    <Compile Include="sources/Entities/Payload/StreamingIndicatorPayload.cs" />
+    <Compile Include="sources/Entities/Payload/TransactionPayload.cs" />
+    <Compile Include="sources/Entities/Payload/TRRPayload.cs" />
+    <Compile Include="sources/Entities/Payload/Parcel/EncryptedCKParcel.cs" />
+    <Compile Include="sources/Entities/Payload/Parcel/SKR1Parcel.cs" />
+    <Compile Include="sources/Entities/TLLVTag.cs" />
+    <Compile Include="sources/Entities/TLLVSlab.cs" />
+    <Compile Include="sources/Entities/SPCMessage.cs" />
+    <Compile Include="sources/Entities/CKCMessage.cs" />
+    <Compile Include="sources/Exceptions/FPException.cs" />
+    <Compile Include="sources/Exceptions/FPContextDateViolatedException.cs" />
+    <Compile Include="sources/Exceptions/FPContextIntegrityViolatedException.cs" />
+    <Compile Include="sources/Exceptions/FPInvalidContextException.cs" />
+    <Compile Include="sources/Exceptions/FPInvalidKeyException.cs" />
+    <Compile Include="sources/Exceptions/FPInvalidProviderException.cs" />
+    <Compile Include="sources/Exceptions/FPKeyLocatorException.cs" />
+    <Compile Include="sources/Interfaces/IContentKey.cs" />
+    <Compile Include="sources/Interfaces/IContentKeyLocator.cs" />
+    <Compile Include="sources/FPProvider.cs" />
+    <Compile Include="sources/FPServer.cs" />
+    <Compile Include="sources/FPExtractor.cs" />
+    <Compile Include="sources/Models/FPStaticKey.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="LICENSE.md" Pack="true" PackagePath="$(PackageLicenseFile)"/>
   </ItemGroup>
 </Project>
