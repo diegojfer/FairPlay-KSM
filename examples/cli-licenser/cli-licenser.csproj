@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <RootNamespace>FoolishTech.FairPlay.CLILicenser</RootNamespace>
+    <EnableDefaultCompileItems>False</EnableDefaultCompileItems>
+    <OutputType>Exe</OutputType>
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <Compile Include="src/Program.cs" />
+    <Compile Include="src/fairplay/Secrets.cs" />
+    <Compile Include="src/fairplay/HardcodedKeyLocator.cs" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <ProjectReference Include="../../FairPlay-KSM.csproj" />
+  </ItemGroup>
+</Project>
